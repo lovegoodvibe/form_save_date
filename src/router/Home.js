@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Form, Checkbox} from 'semantic-ui-react';
+import {Form, Checkbox, Button} from 'semantic-ui-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'semantic-ui-css/semantic.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import {Link} from "react-router-dom";
 const options = [
     {key: 'm', text: 'Male', value: 'male'},
     {key: 'f', text: 'Female', value: 'female'},
@@ -36,12 +37,16 @@ class Information extends Component {
     onSave = () => {
         const notify = () => toast.error("Thông tin quan trọng không thể bỏ trống");
         const error =() => toast.error('Bạn đã chắc chắn với các dữ liệu trên')
+        const signIn =() => toast(<Button>
+            <Link to="/about">Sign in</Link>
+        </Button>);
         const {firstName, lastName, gender, check} = this.state
         localStorage.setItem('firstName', firstName);
         localStorage.setItem('lastName', lastName);
         localStorage.setItem('gender', gender);
         if (firstName===''|| lastName==='' || gender===''){notify()}
         if (check===false){error()}
+        else {signIn()}
     }
 
 
