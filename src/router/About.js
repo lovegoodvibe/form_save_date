@@ -1,5 +1,6 @@
 import React from 'react';
-import {Table} from 'semantic-ui-react';
+import {Table, Button} from 'semantic-ui-react';
+import {Link} from "react-router-dom";
 class About extends React.Component {
     constructor(props) {
         super(props);
@@ -27,18 +28,20 @@ class About extends React.Component {
 
     render() {
         return (
+            <div>
 
-            <Table celled>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>Firstname</Table.HeaderCell>
-                        <Table.HeaderCell>Lastname</Table.HeaderCell>
-                        <Table.HeaderCell>Gender</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
-                {this.changeTable()}
-            </Table>
-
+                <Table celled>
+                    <Table.Header>
+                        <Table.Row>
+                         <Table.HeaderCell>Firstname</Table.HeaderCell>
+                            <Table.HeaderCell>Lastname</Table.HeaderCell>
+                          <Table.HeaderCell>Gender</Table.HeaderCell>
+                      </Table.Row>
+                 </Table.Header>
+                 {this.changeTable()}
+                </Table>
+                <Button> <Link to="/">Log out</Link></Button>
+            </div>
 
 
         );
